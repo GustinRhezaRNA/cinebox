@@ -2,19 +2,8 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Eye, EyeOff, User, Mail, Lock, Film } from 'lucide-react'
-
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-    avatar?: string;
-    joinDate: string;
-    favoriteGenres: string[];
-    watchlist: number[];
-    watchHistory: number[];
-}
+import { Eye, EyeOff,  Mail, Lock, Film, User as Account } from 'lucide-react'
+import type { User } from '@/lib/types/user'
 
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
@@ -164,7 +153,7 @@ const RegisterPage = () => {
                             Full Name
                         </label>
                         <div className="relative">
-                            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                            <Account className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <Input
                                 type="text"
                                 name="name"

@@ -3,18 +3,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Eye, EyeOff, Mail, Lock, Film } from 'lucide-react'
+import type { User } from '@/lib/types/user'
 
-interface User {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-    avatar?: string;
-    joinDate: string;
-    favoriteGenres: string[];
-    watchlist: number[];
-    watchHistory: number[];
-}
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({

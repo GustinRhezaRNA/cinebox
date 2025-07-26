@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input';
 import { Flame, Plus, Search, TrendingUp } from 'lucide-react'
+import { genres } from '@/lib/constants'
 
 interface CategoryFiltersProps {
     selectedGenre?: string;
@@ -22,10 +23,8 @@ const CategoryFilters = ({
 }: CategoryFiltersProps) => {
     const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery);
 
-    // Genre yang tersedia berdasarkan data movie
-    const genres = ["All", "Action", "Adventure", "Animation", "Comedy", "Crime", "Drama", "Family", "Fantasy", "Horror", "Science Fiction", "Thriller"];
-
-    // Category options dengan endpoint mapping
+    
+    // Category options with endpoint mapping
     const categories = [
         { id: "trending", label: "Trending", icon: TrendingUp, endpoint: "/trending/movie/day" },
         { id: "popular", label: "Popular", icon: Flame, endpoint: "/movie/popular" },
