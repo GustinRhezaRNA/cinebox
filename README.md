@@ -210,3 +210,69 @@ Strict TypeScript configuration:
 - Type-safe component props
 - Error handling with typed exceptions
 
+## ⚠️ Assumptions and Limitations
+
+### 🔑 API Assumptions
+
+- **TMDB API Availability**: Assumes TMDB API is always accessible and responsive
+- **API Rate Limits**: No rate limiting implementation - relies on TMDB's generous free tier limits
+- **Data Consistency**: Assumes TMDB data structure remains consistent (poster paths, genre IDs, etc.)
+- **Image Availability**: Assumes movie posters and backdrops are always available at specified URLs
+
+### 🔒 Authentication Limitations
+
+- **Client-Side Only**: Authentication is localStorage-based, not suitable for production
+- **No Password Encryption**: Passwords are stored in plain text in localStorage
+- **Session Management**: No token expiration or refresh mechanism
+- **Security**: No protection against XSS attacks or data tampering
+- **Multi-Device**: Login sessions don't sync across devices
+
+### 📊 Data Management
+
+- **No Database**: All user data stored in browser's localStorage
+- **Data Persistence**: User data lost if localStorage is cleared
+- **No Backup**: No server-side backup of user profiles or watchlists
+- **Storage Limits**: Limited by browser's localStorage capacity (~5-10MB)
+
+### 🎯 Feature Limitations
+
+- **Search Scope**: Only searches movie titles, not cast, director, or plot keywords
+- **Offline Support**: No offline functionality - requires internet connection
+- **Real-time Updates**: No real-time notifications or live data updates
+- **Advanced Filtering**: Limited to basic genre filtering, no year/rating filters
+- **Watchlist Functionality**: UI exists but no actual movie saving/tracking implementation
+
+### 🌐 Browser Compatibility
+
+- **Modern Browsers Only**: Requires ES6+ support (Chrome 60+, Firefox 60+, Safari 12+)
+- **JavaScript Required**: No fallback for users with disabled JavaScript
+- **LocalStorage Dependency**: Requires localStorage support for user features
+
+### 📱 Responsive Design
+
+- **Testing Scope**: Primarily tested on common devices (iPhone, iPad, desktop)
+- **Accessibility**: Basic accessibility features, not fully WCAG compliant
+- **Performance**: No optimization for very slow connections or old devices
+
+### 🔧 Development Assumptions
+
+- **Node.js Version**: Assumes Node.js v18+ environment
+- **Build Process**: Assumes modern build tools and bundler support
+- **Environment Variables**: Requires manual setup of TMDB API key
+- **Development Server**: Assumes local development on standard ports
+
+### 🚀 Production Considerations
+
+- **Scalability**: Not designed for high-traffic production use
+- **Security**: Requires additional security measures for production deployment
+- **Error Tracking**: No error logging or monitoring implementation
+- **Analytics**: No user analytics or usage tracking
+- **SEO**: Limited SEO optimization, primarily client-side rendered
+
+### 📋 Known Issues
+
+- **Memory Usage**: No cleanup of API responses, potential memory leaks on extended use
+- **Error Recovery**: Limited error recovery options, may require page refresh
+- **Loading States**: Some loading states may flash briefly on fast connections
+- **Image Loading**: No lazy loading implementation for movie posters
+- **Browser Back**: Navigation state not always preserved correctly

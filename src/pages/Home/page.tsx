@@ -1,4 +1,4 @@
-import { Play, Star, Plus } from "lucide-react"
+import { Play, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useNavigate } from "react-router-dom"
 import Hero from "./_components/hero"
