@@ -203,31 +203,31 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8 mt-3">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="min-h-screen bg-gray-900 py-4 sm:py-6 lg:py-8 mt-3">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Avatar className="w-20 h-20 mr-6">
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-4 sm:p-6 lg:p-8 mb-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row items-center text-center sm:text-left">
+              <Avatar className="w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-0 sm:mr-6">
                 <AvatarImage src={user.avatar} />
-                <AvatarFallback className="bg-gray-700 text-white text-2xl">
+                <AvatarFallback className="bg-gray-700 text-white text-xl sm:text-2xl">
                   {user.name.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div>
-                <h1 className="text-3xl font-bold text-white mb-2">{user.name}</h1>
-                <p className="text-blue-100 text-lg">{user.email}</p>
+                <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">{user.name}</h1>
+                <p className="text-blue-100 text-base sm:text-lg">{user.email}</p>
                 <p className="text-blue-200 text-sm">
                   Joined {stats.joinedDaysAgo === 0 ? 'today' : `${stats.joinedDaysAgo} days ago`}
                 </p>
               </div>
             </div>
-            <div className="flex space-x-2">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
               <Button
                 onClick={() => setIsEditing(!isEditing)}
                 variant="outline"
-                className="text-white border-white hover:bg-white hover:text-blue-600"
+                className="text-white border-white hover:bg-white hover:text-blue-600 w-full sm:w-auto text-sm"
               >
                 {isEditing ? <X className="w-4 h-4 mr-2" /> : <Edit3 className="w-4 h-4 mr-2" />}
                 {isEditing ? 'Cancel' : 'Edit Profile'}
@@ -235,7 +235,7 @@ const ProfilePage = () => {
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className="text-white border-white hover:bg-red-500 hover:border-red-500"
+                className="text-white border-white hover:bg-red-500 hover:border-red-500 w-full sm:w-auto text-sm"
               >
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout
@@ -244,11 +244,11 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {/* Stats Cards */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-1 space-y-4 sm:space-y-6">
             {/* Statistics */}
-            <div className="bg-gray-800 rounded-lg p-6">
+            <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
                 <Settings className="w-5 h-5 mr-2" />
                 Statistics
@@ -288,9 +288,9 @@ const ProfilePage = () => {
             </div>
 
             {/* Favorite Genres */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                <Heart className="w-5 h-5 mr-2" />
+            <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center">
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Favorite Genres
               </h3>
               {stats.favoriteGenres.length > 0 ? (
@@ -298,7 +298,7 @@ const ProfilePage = () => {
                   {stats.favoriteGenres.map(genre => (
                     <span
                       key={genre}
-                      className="px-3 py-1 bg-blue-600 text-white text-sm rounded-full"
+                      className="px-2 sm:px-3 py-1 bg-blue-600 text-white text-xs sm:text-sm rounded-full"
                     >
                       {genre}
                     </span>
@@ -312,9 +312,9 @@ const ProfilePage = () => {
 
           {/* Profile Information */}
           <div className="lg:col-span-2">
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
-                <User className="w-5 h-5 mr-2" />
+            <div className="bg-gray-800 rounded-lg p-4 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6 flex items-center">
+                <User className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 Profile Information
               </h3>
 
@@ -347,7 +347,7 @@ const ProfilePage = () => {
                     <label className="block text-gray-300 text-sm font-medium mb-2">
                       Favorite Genres
                     </label>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                       {genreOptions.map(genre => (
                         <button
                           key={genre}
@@ -391,19 +391,19 @@ const ProfilePage = () => {
 
                   {/* Recent Activity */}
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                      <Film className="w-5 h-5 mr-2" />
+                    <h4 className="text-base sm:text-lg font-semibold text-white mb-4 flex items-center">
+                      <Film className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       Sample Watchlist
                     </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                       {sampleMovies.map(movie => (
                         <div key={movie.id} className="bg-gray-700 rounded-lg p-3">
                           <img
                             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                             alt={movie.title}
-                            className="w-full h-32 object-cover rounded mb-2"
+                            className="w-full h-28 sm:h-32 object-cover rounded mb-2"
                           />
-                          <h5 className="text-white text-sm font-medium truncate">{movie.title}</h5>
+                          <h5 className="text-white text-xs sm:text-sm font-medium truncate">{movie.title}</h5>
                           <div className="flex items-center mt-1">
                             <Star className="w-3 h-3 text-yellow-400 mr-1" />
                             <span className="text-gray-300 text-xs">{movie.vote_average.toFixed(1)}</span>
