@@ -1,8 +1,11 @@
 import { Play, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 
 const Hero = () => {
+    const navigate = useNavigate()
+
     return (
         <section className="relative h-screen flex items-center overflow-hidden">
             <div
@@ -31,11 +34,15 @@ const Hero = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-stretch sm:items-center">
-                    <Button className="bg-blue-400 hover:bg-blue-300 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg w-full sm:w-auto h-10 md:h-12 rounded-3xl">
+                    <Button
+                        onClick={() => navigate("/movie/1311031")}
+                        className="bg-blue-400 hover:bg-blue-300 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg w-full sm:w-auto h-10 md:h-12 rounded-3xl"
+                    >
                         <Play className="w-4 h-4 md:w-5 md:h-5 mr-2 fill-white" />
                         Watch Now
                     </Button>
                     <Button
+                        onClick={() => window.location.href = "https://youtu.be/x7uLutVRBfI?si=kFIFl1nod7hzhNWA"}
                         variant="outline"
                         className="border-gray-600 text-white hover:bg-gray-800 px-6 md:px-8 py-2 md:py-3 bg-transparent text-base md:text-lg h-10 md:h-12 rounded-3xl w-full sm:w-auto"
                     >
